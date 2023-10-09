@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const config: HardhatUserConfig = {
   solidity: "0.8.20",
-  defaultNetwork: "sepolia",
+  defaultNetwork: "hardhat", //note hardhat is the default network
   networks: {
     hardhat: {
       chainId: 31337,
@@ -17,8 +17,13 @@ const config: HardhatUserConfig = {
   },
   namedAccounts: {
     deployer: {
-      default: 0,
+      default: `${process.env.DEPLOYER_ADDRESS}`,
     },
+  },
+  paths: {
+    deploy: "migrations",
+    deployments: "deployments",
+    imports: "imports",
   },
 };
 
