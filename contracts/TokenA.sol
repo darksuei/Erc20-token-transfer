@@ -12,7 +12,6 @@ contract TokenA is ERC20, Ownable, ERC20Permit {
         Ownable(initialOwner)
     {
         _mint(msg.sender, 1000000 * 10 ** decimals());
-
     }
 
     function mint(address to, uint256 amount) public onlyOwner {
